@@ -1,2 +1,0 @@
-# BharatInternInternship
-Artificial Intelligences task

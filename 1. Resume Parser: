@@ -1,0 +1,37 @@
+# BharatInternInternship
+# Artificial Intelligences task
+# 1. Resume Parser:
+# Create an AI to find the correct canditdate
+# for the job by using NLTK and some
+# words. Use only Jupyter notebook code.
+
+def find_best_candidate(job_description, candidate_resumes):
+    # Preprocess the job description
+    job_words = set(job_description.lower().split())
+
+    best_candidate = None
+    best_score = 0
+
+    for resume in candidate_resumes:
+        # Preprocess the candidate's resume
+        resume_words = set(resume.lower().split())
+
+        # Calculate the score by counting the number of matching words
+        score = len(job_words.intersection(resume_words))
+
+        if score > best_score:
+            best_score = score
+            best_candidate = resume
+
+    return best_candidate
+
+# Example usage
+job_description = "We are looking for a software engineer with experience in Python and machine learning."
+candidate_resumes = [
+    "I am a software engineer with expertise in Python and deep learning.",
+    "I have worked extensively in Java and web development.",
+    "My background is in data analysis and statistical modeling.",
+]
+
+best_candidate = find_best_candidate(job_description, candidate_resumes)
+print(f"The best candidate for the job is: {best_candidate}")
