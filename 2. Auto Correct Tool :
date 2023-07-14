@@ -1,0 +1,26 @@
+# 2. Auto Correct Tool :
+# In this task the AI must correct the word
+#or give the word which is nearest to it.
+# Use only Jupyter notebook code.
+
+from difflib import get_close_matches
+
+def correct_word(word):
+    
+    word_list = ['apple', 'banana', 'orange', 'grape', 'pear']
+    
+   
+    if word in word_list:
+        return word 
+    
+   
+    closest_matches = get_close_matches(word, word_list)
+    
+    if closest_matches:
+        return closest_matches[0]  
+    
+    return "No suggestions found" 
+
+input_word = input("Enter a word: ")
+corrected_word = correct_word(input_word)
+print(" The above word is Incorrect Corrected word is:", corrected_word)
