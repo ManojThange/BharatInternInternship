@@ -1,0 +1,20 @@
+3. Translator App:
+You have to create a translator AI which
+translate between any two languages. Its
+upon you to choose language.
+
+import requests
+
+def translate_text(text, source_lang, target_lang):
+    url = f"https://translate.googleapis.com/translate_a/single?client=gtx&sl={source_lang}&tl={target_lang}&dt=t&q={text}"
+    response = requests.get(url)
+    translated_text = response.json()[0][0][0]
+    return translated_text
+
+# Example usage
+source_text = (input("Enter the name :"))
+source_lang = "en"
+target_lang = "hi"
+
+translated_text = translate_text(source_text, source_lang, target_lang)
+print(f"Translated text: {translated_text}")
